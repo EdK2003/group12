@@ -17,25 +17,23 @@ def calculate_mol_descriptors(df):
     df_out = pd.DataFrame(index=df['SMILES'], columns=header, data=rdkit_2d_desc)
     return df_out
 
-
+# read data from files
 df1 = pd.read_csv('C:\\Git files\\group12\\tested_molecules_v2.csv')
 df2 = pd.read_csv('C:\\Git files\\group12\\tested_molecules-1.csv')
 
+# combine dataframes
 raw_mols = pd.concat((df1, df2))
 
+# calculate descriptors
 PandasTools.AddMoleculeColumnToFrame(raw_mols, smilesCol='SMILES')
-
 df_desc = calculate_mol_descriptors(raw_mols)\
-
 df_desc['ALDH1_inhibition'] = raw_mols['ALDH1_inhibition'].values.copy()
-
-df_data_raw = df_desc
 
 # scale data
 scaler = MinMaxScaler()
-header = df_data_raw.columns
-index = df_data_raw.index
-df_data_scaled = pd.DataFrame(scaler.fit_transform(df_data_raw), index=index, columns=header)
+header = df_desc.columns
+index = df_desc.index
+df_data_scaled = pd.DataFrame(scaler.fit_transform(df_desc), index=index, columns=header)
 
 df_corr = df_data_scaled.loc[:,'MaxAbsEStateIndex':'fr_urea'].corr()
 
