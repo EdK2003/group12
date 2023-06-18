@@ -2,11 +2,9 @@ import pandas as pd
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import balanced_accuracy_score, precision_score, recall_score, matthews_corrcoef, make_scorer
+from sklearn.metrics import balanced_accuracy_score, precision_score, recall_score, make_scorer
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.neural_network import MLPClassifier
-from sklearn.ensemble import AdaBoostClassifier
 import pprint
 
 
