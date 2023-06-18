@@ -77,9 +77,9 @@ print(f'Precision: {precision}')
 recall = recall_score(y_test, y_pred)
 print(f'Recall: {recall}')
 
-# Balanced accuracy: 0.7553492006250752
-# Precision: 0.6581196581196581
-# Recall: 0.652542372881356
+#Balanced accuracy: 0.7543742247176339
+#Precision: 0.584
+#Recall: 0.6886792452830188
 
 # Take the best estimator according to the grid search
 clf = clf.best_estimator_
